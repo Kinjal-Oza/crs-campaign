@@ -1,3 +1,25 @@
+diff --git a/hotelReservation/docker-compose.yml b/hotelReservation/docker-compose.yml
+index dbd4452..f7ad8e5 100644
+--- a/hotelReservation/docker-compose.yml
++++ b/hotelReservation/docker-compose.yml
+@@ -219,7 +219,7 @@ services:
+         condition: any
+ 
+   jaeger:
+-    image: jaegertracing/all-in-one:latest
++    image: jaegertracing/all-in-one:1.57
+     ports:
+       - "14269"
+       - "5778:5778"
+@@ -230,6 +230,8 @@ services:
+       - "6831:6831/udp"
+       - "6832:6832/udp"
+     restart: always
++    environment:
++      - MEMORY_MAX_TRACES=150000
+     deploy:
+       replicas: 1
+       restart_policy:
 diff --git a/socialNetwork/docker-compose.yml b/socialNetwork/docker-compose.yml
 index 23ad783..10b3aeb 100644
 --- a/socialNetwork/docker-compose.yml

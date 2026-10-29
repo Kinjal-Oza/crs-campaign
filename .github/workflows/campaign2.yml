@@ -1,0 +1,48 @@
+name: fault-campaign-2
+on:
+  push:
+    paths: ["campaign2.py", "inject2.py", "loadgen2.py", "collect2.py", ".github/workflows/campaign2.yml"]
+  workflow_dispatch:
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        app: [social, hotel]
+        shard: [0]
+    env:
+      APP: ${{ matrix.app }}
+      JAEGER_SAMPLE_RATIO: "0.1"
+      SMOKE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Testbed
+        run: |
+          sudo modprobe sch_netem || true
+          git clone -q https://github.com/delimitrou/DeathStarBench.git dsb
+          cd dsb && git checkout -q 6ecb09706140f8730b5385c08f1386c654c3c526 && git apply ../dsb.patch
+          pip install -q aiohttp pandas kaggle
+          docker pull -q nicolaka/netshoot
+          if [ "$APP" = social ]; then
+            cd socialNetwork && docker compose up -d && sleep 30 && python3 scripts/init_social_graph.py --graph=socfb-Reed98 | tail -1
+          else
+            cd hotelReservation && docker compose up -d --build && sleep 60
+          fi
+          docker ps --format '{{.Names}}' | wc -l; nproc; free -g
+          mkdir -p $GITHUB_WORKSPACE/out && (docker ps; ls /sys/fs/cgroup/system.slice | head -60; lsmod | grep netem) > $GITHUB_WORKSPACE/out/diag_$APP.txt 2>&1 || true
+      - name: Campaign shard
+        run: |
+          if [ "$APP" = social ]; then export DSB=$GITHUB_WORKSPACE/dsb/socialNetwork; else export DSB=$GITHUB_WORKSPACE/dsb/hotelReservation; fi
+          python3 campaign2.py out ${{ matrix.shard }} 1
+      - name: Upload results to Kaggle
+        if: always()
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          rm -f out/_probe.csv
+          mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+          echo "{\"title\": \"crs-c2smoke-${{ matrix.app }}-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/crs-c2smoke-${{ matrix.app }}-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
+          kaggle datasets create -p out || kaggle datasets version -p out -m "update"
