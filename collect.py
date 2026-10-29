@@ -33,3 +33,4 @@ with open(OUT, "w", newline="") as f:
                 elif ref is None:
                     w.writerow([f"{ts:.3f}", tr["traceID"], entry, k, "USER", "http", svc[k], op, f"{rt:.3f}"]); n += 1
 print("traces", len(seen), "records", n)
+if not seen: sys.exit("collector returned zero traces")

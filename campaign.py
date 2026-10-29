@@ -32,12 +32,19 @@ def healthy():
 log = open(f"{OUT}/campaign.log", "a")
 for i, (f, t, r) in enumerate(plan):
     rid = f"r{i:03d}_{f}_{t}_{r}"
-    if i % NSH != SHARD or os.path.exists(f"{OUT}/{rid}.json"): continue
+    ONLY = [int(x) for x in os.environ.get("RUN_ONLY", "").split(",") if x]
+    if ONLY: 
+        if i not in ONLY or ONLY.index(i) % NSH != SHARD or os.path.exists(f"{OUT}/{rid}.json"): continue
+    elif i % NSH != SHARD or os.path.exists(f"{OUT}/{rid}.json"): continue
     reset(); time.sleep(20); ok, p95 = healthy(); k = 0
     while not ok and k < 3:
         log.write(f"{time.time():.0f} unhealthy before {rid} p95={p95}; restarting stack\n"); log.flush()
         subprocess.run(["docker", "compose", "restart"], cwd=DSB, capture_output=True); time.sleep(60); ok, p95 = healthy(); k += 1
     log.write(f"{time.time():.0f} start {rid} healthy={ok} p95={p95}\n"); log.flush()
     subprocess.run(["python3", f"{H}/inject.py", rid, f, t, OUT])
+    if not os.path.exists(f"{OUT}/{rid}.json"):   # e.g. collector got zero traces: restart stack, retry once
+        log.write(f"{time.time():.0f} FAILED {rid}; restarting stack and retrying once\n"); log.flush()
+        subprocess.run(["docker", "compose", "restart"], cwd=DSB, capture_output=True); time.sleep(60); reset(); time.sleep(20)
+        subprocess.run(["python3", f"{H}/inject.py", rid, f, t, OUT])
     log.write(f"{time.time():.0f} end {rid}\n"); log.flush()
 reset(); log.write("CAMPAIGN DONE\n")
