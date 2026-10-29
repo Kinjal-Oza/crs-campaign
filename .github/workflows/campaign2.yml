@@ -44,5 +44,5 @@ jobs:
         run: |
           rm -f out/_probe.csv
           mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
-          echo "{\"title\": \"crs-c2smoke-${{ matrix.app }}-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/crs-c2smoke-${{ matrix.app }}-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
+          echo "{\"title\": \"crs-c2smoke2-${{ matrix.app }}-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/crs-c2smoke-${{ matrix.app }}-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
           kaggle datasets create -p out || kaggle datasets version -p out -m "update"

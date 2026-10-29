@@ -17,12 +17,12 @@ if os.environ.get("SMOKE"): plan = [("cpu_ramp_slow", TARGETS[3], 0), ("net_ramp
 json.dump(plan, open(f"{OUT}/plan_{APP}.json", "w"))
 
 def names(): return [n for n in subprocess.run(["docker", "ps", "-a", "--format", "{{.Names}}"], capture_output=True, text=True).stdout.split()]
-def reset():
-    for n in names():
-        subprocess.run(["docker", "unpause", n], capture_output=True); subprocess.run(["docker", "update", "--cpus", "4", n], capture_output=True)
+def reset():   # unpause everything and clear any cgroup CPU limit
+    for n in names(): subprocess.run(["docker", "unpause", n], capture_output=True)
+    subprocess.run("for f in /sys/fs/cgroup/system.slice/docker-*.scope/cpu.max; do echo 'max 100000' | sudo tee $f >/dev/null; done", shell=True)
 def healthy():
     p = f"{OUT}/_probe.csv"; subprocess.run(["python3", f"{H}/loadgen2.py", "50", "10", p], env=dict(os.environ, APP=APP))
-    d = pd.read_csv(p); ok = (d.status == 200).mean() > 0.99 and d.lat_ms.quantile(.95) < 200
+    d = pd.read_csv(p); ok = (d.status == 200).mean() > 0.99 and d.lat_ms.quantile(.95) < 60
     try:
         t1 = int(time.time() * 1e6)
         tr = json.load(urllib.request.urlopen(f"http://localhost:16686/api/traces?service={FRONT}&limit=5&start={t1-60_000_000}&end={t1}"))["data"] or []

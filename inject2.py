@@ -17,6 +17,9 @@ def cid(svc):
     return out[0] if out else None
 C = cid(TARGET) if FAULT != "none" else None
 assert FAULT == "none" or C, f"no container for {TARGET}"
+def cpumax(cont, val):   # write cgroup v2 cpu.max directly ("<quota> 100000" or "max 100000"); docker update cannot clear a limit
+    g = glob.glob(f"/sys/fs/cgroup/**/docker-{cont}.scope/cpu.max", recursive=True)
+    return sh("sudo", "sh", "-c", f"echo '{val}' > {g[0]}").returncode if g else -1
 def netem(args): return sh("docker", "run", "--rm", "--net", f"container:{C}", "--cap-add", "NET_ADMIN", "nicolaka/netshoot", "tc", "qdisc", *args)
 t0 = time.time(); events = []; stop = threading.Event()
 def at(s): time.sleep(max(0, t0 + s - time.time()))
@@ -47,8 +50,8 @@ lg = threading.Thread(target=lambda: subprocess.run(["python3", f"{H}/loadgen2.p
 at(F0); events.append(("fault_start", time.time()))
 if FAULT == "cpu_ramp_slow":
     for k in range(STEPS):
-        q = 1.0 - 0.98 * (k + 1) / STEPS; sh("docker", "update", "--cpus", f"{q:.3f}", C); events.append((f"cpus={q:.3f}", time.time())); at(F0 + 10 * (k + 1))
-    sh("docker", "update", "--cpus", "4", C)
+        q = 1.0 - 0.98 * (k + 1) / STEPS; rc = cpumax(C, f"{int(q * 100000)} 100000"); events.append((f"cpus={q:.3f} rc={rc}", time.time())); at(F0 + 10 * (k + 1))
+    cpumax(C, "max 100000")
 elif FAULT == "net_ramp":
     for k in range(STEPS):
         ms = 5 * (k + 1) * (30 // STEPS); r = netem(["replace", "dev", "eth0", "root", "netem", "delay", f"{ms}ms"])
