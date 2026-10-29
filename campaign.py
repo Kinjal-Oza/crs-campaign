@@ -26,6 +26,8 @@ def healthy():
     d = pd.read_csv(p); ok = (d.status == 200).mean() > 0.99 and d.lat_ms.quantile(.95) < 200
     try:
         import urllib.request; ok = ok and len(json.load(urllib.request.urlopen("http://localhost:16686/api/services"))["data"] or []) >= 8
+        t1 = int(time.time() * 1e6); tr = json.load(urllib.request.urlopen(f"http://localhost:16686/api/traces?service=nginx-web-server&limit=5&start={t1-60_000_000}&end={t1}"))["data"] or []
+        ok = ok and len(tr) > 0   # the frontend's traces must be queryable, not just the service list
     except Exception: ok = False
     return ok, round(float(d.lat_ms.quantile(.95)), 1)
 

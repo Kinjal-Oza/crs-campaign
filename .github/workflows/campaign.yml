@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       max-parallel: 12
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: [0, 1]
     steps:
       - uses: actions/checkout@v4
       - name: Testbed
@@ -22,8 +22,8 @@ jobs:
       - name: Campaign shard
         env:
           DSB: ${{ github.workspace }}/dsb/socialNetwork
-          RUN_ONLY: "5,17,29,41,53,65,77,89,101,113,125"
-        run: python3 campaign.py out ${{ matrix.shard }} 4
+          RUN_ONLY: "41,89"
+        run: python3 campaign.py out ${{ matrix.shard }} 2
       - name: Upload results to Kaggle
         if: always()
         env:
@@ -31,5 +31,5 @@ jobs:
         run: |
           rm -f out/_probe.csv
           mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
-          echo "{\"title\": \"crs-campaign-rerun-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/crs-campaign-rerun-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
+          echo "{\"title\": \"crs-campaign-rerun2-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/crs-campaign-rerun2-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
           kaggle datasets create -p out || kaggle datasets version -p out -m "update"
