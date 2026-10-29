@@ -1,0 +1,34 @@
+name: fault-campaign
+on: [push, workflow_dispatch]
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Testbed
+        run: |
+          git clone -q https://github.com/delimitrou/DeathStarBench.git dsb
+          cd dsb && git checkout -q 6ecb09706140f8730b5385c08f1386c654c3c526 && git apply ../dsb.patch
+          cd socialNetwork && docker compose up -d
+          pip install -q aiohttp pandas kaggle
+          sleep 30 && python3 scripts/init_social_graph.py --graph=socfb-Reed98 | tail -1
+          nproc; free -g
+      - name: Campaign shard
+        env:
+          DSB: ${{ github.workspace }}/dsb/socialNetwork
+        run: python3 campaign.py out ${{ matrix.shard }} 12
+      - name: Upload results to Kaggle
+        if: always()
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          rm -f out/_probe.csv
+          mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+          echo "{\"title\": \"crs-campaign-shard-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/crs-campaign-shard-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
+          kaggle datasets create -p out || kaggle datasets version -p out -m "update"
