@@ -12,11 +12,10 @@ jobs:
       max-parallel: 20
       matrix:
         app: [social, hotel]
-        shard: [0]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     env:
       APP: ${{ matrix.app }}
       JAEGER_SAMPLE_RATIO: "0.1"
-      SMOKE: "1"
     steps:
       - uses: actions/checkout@v4
       - name: Testbed
@@ -36,7 +35,7 @@ jobs:
       - name: Campaign shard
         run: |
           if [ "$APP" = social ]; then export DSB=$GITHUB_WORKSPACE/dsb/socialNetwork; else export DSB=$GITHUB_WORKSPACE/dsb/hotelReservation; fi
-          python3 campaign2.py out ${{ matrix.shard }} 1
+          python3 campaign2.py out ${{ matrix.shard }} 10
       - name: Upload results to Kaggle
         if: always()
         env:
@@ -44,5 +43,5 @@ jobs:
         run: |
           rm -f out/_probe.csv
           mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
-          echo "{\"title\": \"crs-c2smoke2-${{ matrix.app }}-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/crs-c2smoke2-${{ matrix.app }}-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
+          echo "{\"title\": \"crs-c2-${{ matrix.app }}-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/crs-c2-${{ matrix.app }}-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
           kaggle datasets create -p out || kaggle datasets version -p out -m "update"
