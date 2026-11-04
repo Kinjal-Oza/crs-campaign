@@ -1,0 +1,75 @@
+name: fault-campaign-3
+on:
+  workflow_dispatch:
+    inputs:
+      smoke:
+        description: "1 = smoke plan only (never scored)"
+        default: "1"
+permissions:
+  contents: read
+  packages: write
+jobs:
+  build-async:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build app A image from DeathStarBench 5728790
+        run: |
+          ./setup_async.sh dsb_async
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          IMG=ghcr.io/kinjal-oza/sn-async:5728790
+          if ! docker manifest inspect $IMG >/dev/null 2>&1; then
+            cd dsb_async/socialNetwork && docker build -q --build-arg NUM_CPUS=4 -t $IMG . && docker push -q $IMG
+          fi
+          docker manifest inspect $IMG | head -20
+  shard:
+    needs: build-async
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        app: [social, hotel, async]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    env:
+      APP: ${{ matrix.app }}
+      SMOKE: ${{ github.event.inputs.smoke == '1' && '1' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Testbed
+        if: ${{ env.SMOKE != '1' || matrix.shard == 0 }}
+        run: |
+          sudo modprobe sch_netem || true
+          pip install -q aiohttp pandas kaggle
+          docker pull -q nicolaka/netshoot
+          if [ "$APP" = async ]; then
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+            ./setup_async.sh dsb && cd dsb/socialNetwork && docker compose pull -q && docker compose up -d && sleep 60
+            python3 scripts/init_social_graph.py | tail -1
+          else
+            git clone -q https://github.com/delimitrou/DeathStarBench.git dsb
+            cd dsb && git checkout -q 6ecb09706140f8730b5385c08f1386c654c3c526 && git apply ../dsb.patch
+            if [ "$APP" = social ]; then
+              cd socialNetwork && docker compose up -d && sleep 30 && python3 scripts/init_social_graph.py --graph=socfb-Reed98 | tail -1
+            else
+              cd hotelReservation && docker compose up -d --build && sleep 60
+            fi
+          fi
+          docker ps --format '{{.Names}} {{.Image}}' | sort; nproc; free -g; uname -r; docker version --format '{{.Server.Version}}'
+      - name: Campaign shard
+        if: ${{ env.SMOKE != '1' || matrix.shard == 0 }}
+        run: |
+          if [ "$APP" = hotel ]; then export DSB=$GITHUB_WORKSPACE/dsb/hotelReservation; else export DSB=$GITHUB_WORKSPACE/dsb/socialNetwork; fi
+          if [ "$SMOKE" = 1 ]; then python3 campaign3.py out 0 1; else python3 campaign3.py out ${{ matrix.shard }} 10; fi
+      - name: Upload results to Kaggle
+        if: ${{ always() && (env.SMOKE != '1' || matrix.shard == 0) }}
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          rm -f out/_probe*.csv
+          P=$([ "$SMOKE" = 1 ] && echo crs-c3smoke || echo crs-c3)
+          mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+          echo "{\"title\": \"$P-${{ matrix.app }}-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/$P-${{ matrix.app }}-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
+          kaggle datasets create -p out || kaggle datasets version -p out -m "update"
