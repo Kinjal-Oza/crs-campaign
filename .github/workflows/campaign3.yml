@@ -6,7 +6,7 @@ on:
         description: "1 = smoke plan only (never scored)"
         default: "1"
 permissions:
-  contents: read
+  contents: write
   packages: write
 jobs:
   build-async:
@@ -38,6 +38,14 @@ jobs:
       SMOKE: ${{ github.event.inputs.smoke == '1' && '1' || '' }}
     steps:
       - uses: actions/checkout@v4
+      - name: Check Kaggle credentials before running (fails fast if the token is invalid)
+        if: ${{ env.SMOKE != '1' || matrix.shard == 0 }}
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          pip install -q kaggle
+          mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+          kaggle datasets list --mine --max-size 1 >/dev/null && echo "Kaggle auth OK"
       - name: Testbed
         if: ${{ env.SMOKE != '1' || matrix.shard == 0 }}
         run: |
@@ -63,6 +71,14 @@ jobs:
         run: |
           if [ "$APP" = hotel ]; then export DSB=$GITHUB_WORKSPACE/dsb/hotelReservation; else export DSB=$GITHUB_WORKSPACE/dsb/socialNetwork; fi
           if [ "$SMOKE" = 1 ]; then python3 campaign3.py out 0 1; else python3 campaign3.py out ${{ matrix.shard }} 10; fi
+      - name: Save results as a GitHub artifact (backup)
+        if: ${{ always() && (env.SMOKE != '1' || matrix.shard == 0) }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: c3-${{ matrix.app }}-${{ matrix.shard }}
+          path: out/
+          retention-days: 90
+          if-no-files-found: warn
       - name: Upload results to Kaggle
         if: ${{ always() && (env.SMOKE != '1' || matrix.shard == 0) }}
         env:
@@ -71,5 +87,26 @@ jobs:
           rm -f out/_probe*.csv
           P=$([ "$SMOKE" = 1 ] && echo crs-c3smoke || echo crs-c3)
           mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
+          echo "token length: ${#KAGGLE_API_TOKEN}"
           echo "{\"title\": \"$P-${{ matrix.app }}-${{ matrix.shard }}\", \"id\": \"kinjalvaishnav/$P-${{ matrix.app }}-${{ matrix.shard }}\", \"licenses\": [{\"name\": \"other\"}]}" > out/dataset-metadata.json
-          kaggle datasets create -p out || kaggle datasets version -p out -m "update"
+          for i in 1 2 3; do
+            (kaggle datasets create -p out || kaggle datasets version -p out -m "update") && exit 0
+            echo "Kaggle upload attempt $i failed; retrying in 60 s"; sleep 60
+          done
+          exit 1
+  publish:
+    needs: shard
+    if: ${{ always() && github.event.inputs.smoke != '1' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: arts
+      - name: Attach every shard's data to a public GitHub release (backup copy, readable without login)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p rel && for d in arts/*; do tar czf rel/$(basename $d).tar.gz -C arts $(basename $d); done
+          ls -la rel
+          gh release create "c3-data-${{ github.run_id }}" rel/*.tar.gz --repo "${{ github.repository }}" \
+            --title "Study 3 raw run data (run ${{ github.run_id }})" --notes "Raw output of every shard of fault-campaign-3 run ${{ github.run_id }} (plan: osf.io/ujdvs)."
