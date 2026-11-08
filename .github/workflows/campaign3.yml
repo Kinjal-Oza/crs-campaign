@@ -45,7 +45,11 @@ jobs:
         run: |
           pip install -q kaggle
           mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
-          kaggle datasets list --mine --max-size 1 >/dev/null && echo "Kaggle auth OK"
+          kaggle --version; echo "token length: ${#KAGGLE_API_TOKEN}, prefix: ${KAGGLE_API_TOKEN:0:5}"
+          kaggle datasets list --mine 2>&1 | head -5
+          kaggle datasets list --mine >/dev/null 2>&1 || { echo "::error::Kaggle rejected the KAGGLE_API_TOKEN secret"; exit 1; }
+          kaggle datasets list --mine 2>&1 | grep -q "Authentication required" && { echo "::error::Kaggle rejected the KAGGLE_API_TOKEN secret"; exit 1; }
+          echo "Kaggle auth OK"
       - name: Testbed
         if: ${{ env.SMOKE != '1' || matrix.shard == 0 }}
         run: |
@@ -84,6 +88,7 @@ jobs:
         env:
           KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
+          ls out/*.json >/dev/null 2>&1 || { echo "No run data in this shard; nothing to upload."; exit 0; }
           rm -f out/_probe*.csv
           P=$([ "$SMOKE" = 1 ] && echo crs-c3smoke || echo crs-c3)
           mkdir -p ~/.kaggle && printf "%s" "$KAGGLE_API_TOKEN" > ~/.kaggle/access_token && chmod 600 ~/.kaggle/access_token
