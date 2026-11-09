@@ -45,9 +45,12 @@ def healthy():
     return ok, round(float(d.lat_ms.quantile(.95)), 1), fr
 
 log = open(f"{OUT}/campaign3_{APP}_{SHARD}.log", "a")
-for i, (f, t, r, q) in enumerate(plan):
+ONLY = [int(x) for x in os.environ.get("ONLY", "").split(",") if x.strip()]   # rerun of specific plan indices (deviation 2)
+todo = ONLY if ONLY else list(range(len(plan)))
+for k, i in enumerate(todo):
+    f, t, r, q = plan[i]
     rid = f"{APP}_r{i:03d}_{f}_{t}_{r}_q{q}"
-    if i % NSH != SHARD or os.path.exists(f"{OUT}/{rid}.json"): continue
+    if k % NSH != SHARD or os.path.exists(f"{OUT}/{rid}.json"): continue
     for attempt in range(2):
         reset(); time.sleep(20); ok, p95, fr = healthy(); k = 0
         while not ok and k < 3:
