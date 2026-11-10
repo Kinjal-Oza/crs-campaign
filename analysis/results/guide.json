@@ -1,0 +1,1772 @@
+{
+ "async": {
+  "M1": [
+   {
+    "level": "q0.95",
+    "tau": 0.016915900521474007,
+    "breaches": 66,
+    "detected": 59,
+    "early": 42,
+    "med_lead": 60.0,
+    "fa_h": 5.000000000000004,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.018128405681581257,
+    "breaches": 66,
+    "detected": 59,
+    "early": 41,
+    "med_lead": 60.0,
+    "fa_h": 2.765957446808513,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "max",
+    "tau": 0.018574960766656767,
+    "breaches": 66,
+    "detected": 59,
+    "early": 41,
+    "med_lead": 60.0,
+    "fa_h": 1.7021276595744697,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.02321870095832096,
+    "breaches": 66,
+    "detected": 59,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 0.31914893617021306,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.02786244114998515,
+    "breaches": 66,
+    "detected": 59,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "2max",
+    "tau": 0.037149921533313535,
+    "breaches": 66,
+    "detected": 58,
+    "early": 37,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "3max",
+    "tau": 0.0557248822999703,
+    "breaches": 66,
+    "detected": 58,
+    "early": 34,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   }
+  ],
+  "M1int": [
+   {
+    "level": "q0.95",
+    "tau": 0.01633275381521194,
+    "breaches": 66,
+    "detected": 59,
+    "early": 43,
+    "med_lead": 60.0,
+    "fa_h": 5.319148936170218,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.018128405681581257,
+    "breaches": 66,
+    "detected": 59,
+    "early": 40,
+    "med_lead": 60.0,
+    "fa_h": 2.2340425531914914,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "max",
+    "tau": 0.018574960766656767,
+    "breaches": 66,
+    "detected": 59,
+    "early": 40,
+    "med_lead": 60.0,
+    "fa_h": 1.170212765957448,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.02321870095832096,
+    "breaches": 66,
+    "detected": 59,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 0.31914893617021306,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.02786244114998515,
+    "breaches": 66,
+    "detected": 59,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "2max",
+    "tau": 0.037149921533313535,
+    "breaches": 66,
+    "detected": 56,
+    "early": 37,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "3max",
+    "tau": 0.0557248822999703,
+    "breaches": 66,
+    "detected": 55,
+    "early": 34,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   }
+  ],
+  "M2": [
+   {
+    "level": "q0.95",
+    "tau": 0.21012966287439702,
+    "breaches": 66,
+    "detected": 61,
+    "early": 47,
+    "med_lead": 90.0,
+    "fa_h": 6.914893617021283,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.25006393843699876,
+    "breaches": 66,
+    "detected": 60,
+    "early": 45,
+    "med_lead": 90.0,
+    "fa_h": 4.0425531914893655,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "max",
+    "tau": 0.25877362668359105,
+    "breaches": 66,
+    "detected": 60,
+    "early": 45,
+    "med_lead": 90.0,
+    "fa_h": 3.297872340425535,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.3234670333544888,
+    "breaches": 66,
+    "detected": 60,
+    "early": 41,
+    "med_lead": 60.0,
+    "fa_h": 0.6382978723404261,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.3881604400253866,
+    "breaches": 66,
+    "detected": 60,
+    "early": 40,
+    "med_lead": 60.0,
+    "fa_h": 0.2127659574468087,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "2max",
+    "tau": 0.5175472533671821,
+    "breaches": 66,
+    "detected": 60,
+    "early": 40,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "3max",
+    "tau": 0.7763208800507732,
+    "breaches": 66,
+    "detected": 59,
+    "early": 39,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   }
+  ],
+  "M5": [
+   {
+    "level": "q0.95",
+    "tau": 0.19657771140381497,
+    "breaches": 66,
+    "detected": 61,
+    "early": 47,
+    "med_lead": 90.0,
+    "fa_h": 7.446808510638305,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.2533374814182617,
+    "breaches": 66,
+    "detected": 60,
+    "early": 45,
+    "med_lead": 90.0,
+    "fa_h": 4.0425531914893655,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "max",
+    "tau": 0.27186779860864607,
+    "breaches": 66,
+    "detected": 60,
+    "early": 45,
+    "med_lead": 90.0,
+    "fa_h": 2.765957446808513,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.3398347482608076,
+    "breaches": 66,
+    "detected": 60,
+    "early": 41,
+    "med_lead": 60.0,
+    "fa_h": 0.5319148936170217,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.4078016979129691,
+    "breaches": 66,
+    "detected": 60,
+    "early": 40,
+    "med_lead": 60.0,
+    "fa_h": 0.2127659574468087,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "2max",
+    "tau": 0.5437355972172921,
+    "breaches": 66,
+    "detected": 60,
+    "early": 40,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "3max",
+    "tau": 0.8156033958259382,
+    "breaches": 66,
+    "detected": 59,
+    "early": 39,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   }
+  ],
+  "M6": [
+   {
+    "level": "q0.95",
+    "tau": 0.09998375098687637,
+    "breaches": 66,
+    "detected": 55,
+    "early": 41,
+    "med_lead": 90.0,
+    "fa_h": 4.574468085106387,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.1140323833685509,
+    "breaches": 66,
+    "detected": 53,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 3.7234042553191524,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "max",
+    "tau": 0.11791818938860171,
+    "breaches": 66,
+    "detected": 53,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 3.510638297872344,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.14739773673575213,
+    "breaches": 66,
+    "detected": 52,
+    "early": 37,
+    "med_lead": 60.0,
+    "fa_h": 3.4042553191489393,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.17687728408290257,
+    "breaches": 66,
+    "detected": 51,
+    "early": 36,
+    "med_lead": 60.0,
+    "fa_h": 3.297872340425535,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "2max",
+    "tau": 0.23583637877720343,
+    "breaches": 66,
+    "detected": 51,
+    "early": 36,
+    "med_lead": 60.0,
+    "fa_h": 2.4468085106383,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "3max",
+    "tau": 0.35375456816580514,
+    "breaches": 66,
+    "detected": 49,
+    "early": 31,
+    "med_lead": 60.0,
+    "fa_h": 0.31914893617021306,
+    "control_h": 9.399999999999991
+   }
+  ],
+  "M8": [
+   {
+    "level": "q0.95",
+    "tau": 0.016915900521474007,
+    "breaches": 66,
+    "detected": 59,
+    "early": 42,
+    "med_lead": 60.0,
+    "fa_h": 5.000000000000004,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.018128405681581257,
+    "breaches": 66,
+    "detected": 59,
+    "early": 41,
+    "med_lead": 60.0,
+    "fa_h": 2.765957446808513,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "max",
+    "tau": 0.018574960766656767,
+    "breaches": 66,
+    "detected": 59,
+    "early": 41,
+    "med_lead": 60.0,
+    "fa_h": 1.7021276595744697,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.02321870095832096,
+    "breaches": 66,
+    "detected": 59,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 0.31914893617021306,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.02786244114998515,
+    "breaches": 66,
+    "detected": 59,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "2max",
+    "tau": 0.037149921533313535,
+    "breaches": 66,
+    "detected": 58,
+    "early": 37,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "3max",
+    "tau": 0.0557248822999703,
+    "breaches": 66,
+    "detected": 58,
+    "early": 34,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   }
+  ],
+  "M9c": [
+   {
+    "level": "q0.95",
+    "tau": 0.0,
+    "breaches": 66,
+    "detected": 49,
+    "early": 20,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.0,
+    "breaches": 66,
+    "detected": 49,
+    "early": 20,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "max",
+    "tau": 0.0,
+    "breaches": 66,
+    "detected": 49,
+    "early": 20,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.0,
+    "breaches": 66,
+    "detected": 49,
+    "early": 20,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.0,
+    "breaches": 66,
+    "detected": 49,
+    "early": 20,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "2max",
+    "tau": 0.0,
+    "breaches": 66,
+    "detected": 49,
+    "early": 20,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "3max",
+    "tau": 0.0,
+    "breaches": 66,
+    "detected": 49,
+    "early": 20,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   }
+  ],
+  "M10": [
+   {
+    "level": "q0.95",
+    "tau": 0.6277636650701177,
+    "breaches": 66,
+    "detected": 66,
+    "early": 47,
+    "med_lead": 60.0,
+    "fa_h": 6.808510638297879,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.6629945891604417,
+    "breaches": 66,
+    "detected": 60,
+    "early": 35,
+    "med_lead": 90.0,
+    "fa_h": 2.340425531914896,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "max",
+    "tau": 0.6752888309483575,
+    "breaches": 66,
+    "detected": 54,
+    "early": 29,
+    "med_lead": 90.0,
+    "fa_h": 1.2765957446808522,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.8441110386854468,
+    "breaches": 66,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "1.5max",
+    "tau": 1.0129332464225362,
+    "breaches": 66,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "2max",
+    "tau": 1.350577661896715,
+    "breaches": 66,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   },
+   {
+    "level": "3max",
+    "tau": 2.0258664928450725,
+    "breaches": 66,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   }
+  ],
+  "M9": [
+   {
+    "level": "fixed",
+    "tau": 0.5,
+    "breaches": 66,
+    "detected": 19,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.399999999999991
+   }
+  ]
+ },
+ "hotel": {
+  "M1": [
+   {
+    "level": "q0.95",
+    "tau": 0.01809643907707839,
+    "breaches": 64,
+    "detected": 59,
+    "early": 49,
+    "med_lead": 90.0,
+    "fa_h": 7.816901408450713,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.020870357722030355,
+    "breaches": 64,
+    "detected": 58,
+    "early": 44,
+    "med_lead": 90.0,
+    "fa_h": 3.1690140845070456,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "max",
+    "tau": 0.023566106280157158,
+    "breaches": 64,
+    "detected": 58,
+    "early": 43,
+    "med_lead": 90.0,
+    "fa_h": 1.4788732394366213,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.029457632850196445,
+    "breaches": 64,
+    "detected": 58,
+    "early": 42,
+    "med_lead": 75.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.03534915942023574,
+    "breaches": 64,
+    "detected": 58,
+    "early": 41,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "2max",
+    "tau": 0.047132212560314315,
+    "breaches": 64,
+    "detected": 58,
+    "early": 39,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "3max",
+    "tau": 0.07069831884047148,
+    "breaches": 64,
+    "detected": 58,
+    "early": 31,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ],
+  "M1int": [
+   {
+    "level": "q0.95",
+    "tau": 0.01579585164818699,
+    "breaches": 64,
+    "detected": 58,
+    "early": 48,
+    "med_lead": 90.0,
+    "fa_h": 8.450704225352123,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.018361963429429477,
+    "breaches": 64,
+    "detected": 56,
+    "early": 44,
+    "med_lead": 90.0,
+    "fa_h": 3.063380281690144,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "max",
+    "tau": 0.02163696152691436,
+    "breaches": 64,
+    "detected": 55,
+    "early": 40,
+    "med_lead": 90.0,
+    "fa_h": 0.7394366197183107,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.027046201908642948,
+    "breaches": 64,
+    "detected": 55,
+    "early": 39,
+    "med_lead": 90.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.03245544229037154,
+    "breaches": 64,
+    "detected": 55,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "2max",
+    "tau": 0.04327392305382872,
+    "breaches": 64,
+    "detected": 55,
+    "early": 33,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "3max",
+    "tau": 0.06491088458074308,
+    "breaches": 64,
+    "detected": 55,
+    "early": 31,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ],
+  "M2": [
+   {
+    "level": "q0.95",
+    "tau": 0.41881566244913326,
+    "breaches": 64,
+    "detected": 62,
+    "early": 50,
+    "med_lead": 90.0,
+    "fa_h": 7.60563380281691,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.5934807136376113,
+    "breaches": 64,
+    "detected": 59,
+    "early": 47,
+    "med_lead": 90.0,
+    "fa_h": 1.5845070422535228,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "max",
+    "tau": 0.7231379262112968,
+    "breaches": 64,
+    "detected": 59,
+    "early": 44,
+    "med_lead": 90.0,
+    "fa_h": 0.4225352112676061,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.903922407764121,
+    "breaches": 64,
+    "detected": 59,
+    "early": 42,
+    "med_lead": 90.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.5max",
+    "tau": 1.0847068893169451,
+    "breaches": 64,
+    "detected": 58,
+    "early": 42,
+    "med_lead": 75.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "2max",
+    "tau": 1.4462758524225936,
+    "breaches": 64,
+    "detected": 58,
+    "early": 39,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "3max",
+    "tau": 2.1694137786338903,
+    "breaches": 64,
+    "detected": 58,
+    "early": 29,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ],
+  "M5": [
+   {
+    "level": "q0.95",
+    "tau": 0.402553720771136,
+    "breaches": 64,
+    "detected": 62,
+    "early": 51,
+    "med_lead": 90.0,
+    "fa_h": 8.450704225352123,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.5523501222908296,
+    "breaches": 64,
+    "detected": 59,
+    "early": 48,
+    "med_lead": 90.0,
+    "fa_h": 2.640845070422538,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "max",
+    "tau": 0.6996279981068472,
+    "breaches": 64,
+    "detected": 59,
+    "early": 44,
+    "med_lead": 90.0,
+    "fa_h": 0.4225352112676061,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.874534997633559,
+    "breaches": 64,
+    "detected": 59,
+    "early": 43,
+    "med_lead": 90.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.5max",
+    "tau": 1.0494419971602706,
+    "breaches": 64,
+    "detected": 59,
+    "early": 42,
+    "med_lead": 75.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "2max",
+    "tau": 1.3992559962136943,
+    "breaches": 64,
+    "detected": 58,
+    "early": 40,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "3max",
+    "tau": 2.0988839943205413,
+    "breaches": 64,
+    "detected": 58,
+    "early": 29,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ],
+  "M6": [
+   {
+    "level": "q0.95",
+    "tau": 0.3420410793250394,
+    "breaches": 64,
+    "detected": 58,
+    "early": 48,
+    "med_lead": 90.0,
+    "fa_h": 4.964788732394371,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.4408063399950121,
+    "breaches": 64,
+    "detected": 58,
+    "early": 45,
+    "med_lead": 90.0,
+    "fa_h": 2.852112676056341,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "max",
+    "tau": 0.450241336275034,
+    "breaches": 64,
+    "detected": 58,
+    "early": 44,
+    "med_lead": 90.0,
+    "fa_h": 2.1126760563380307,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.5628016703437925,
+    "breaches": 64,
+    "detected": 58,
+    "early": 42,
+    "med_lead": 90.0,
+    "fa_h": 0.6338028169014092,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.675362004412551,
+    "breaches": 64,
+    "detected": 58,
+    "early": 41,
+    "med_lead": 90.0,
+    "fa_h": 0.10563380281690153,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "2max",
+    "tau": 0.900482672550068,
+    "breaches": 64,
+    "detected": 58,
+    "early": 40,
+    "med_lead": 75.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "3max",
+    "tau": 1.350724008825102,
+    "breaches": 64,
+    "detected": 58,
+    "early": 38,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ],
+  "M8": [
+   {
+    "level": "q0.95",
+    "tau": 0.01809643907707839,
+    "breaches": 64,
+    "detected": 59,
+    "early": 53,
+    "med_lead": 90.0,
+    "fa_h": 7.816901408450713,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.020870357722030355,
+    "breaches": 64,
+    "detected": 58,
+    "early": 50,
+    "med_lead": 60.0,
+    "fa_h": 3.1690140845070456,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "max",
+    "tau": 0.023566106280157158,
+    "breaches": 64,
+    "detected": 58,
+    "early": 49,
+    "med_lead": 60.0,
+    "fa_h": 1.4788732394366213,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.029457632850196445,
+    "breaches": 64,
+    "detected": 58,
+    "early": 49,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.03534915942023574,
+    "breaches": 64,
+    "detected": 58,
+    "early": 48,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "2max",
+    "tau": 0.047132212560314315,
+    "breaches": 64,
+    "detected": 58,
+    "early": 47,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "3max",
+    "tau": 0.07069831884047148,
+    "breaches": 64,
+    "detected": 58,
+    "early": 39,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ],
+  "M9c": [
+   {
+    "level": "q0.95",
+    "tau": 0.0,
+    "breaches": 64,
+    "detected": 58,
+    "early": 22,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.0,
+    "breaches": 64,
+    "detected": 58,
+    "early": 22,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "max",
+    "tau": 0.0,
+    "breaches": 64,
+    "detected": 58,
+    "early": 22,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.0,
+    "breaches": 64,
+    "detected": 58,
+    "early": 22,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.0,
+    "breaches": 64,
+    "detected": 58,
+    "early": 22,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "2max",
+    "tau": 0.0,
+    "breaches": 64,
+    "detected": 58,
+    "early": 22,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "3max",
+    "tau": 0.0,
+    "breaches": 64,
+    "detected": 58,
+    "early": 22,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ],
+  "M10": [
+   {
+    "level": "q0.95",
+    "tau": 0.597522413802283,
+    "breaches": 64,
+    "detected": 64,
+    "early": 46,
+    "med_lead": 90.0,
+    "fa_h": 7.60563380281691,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.6259569221644053,
+    "breaches": 64,
+    "detected": 63,
+    "early": 44,
+    "med_lead": 90.0,
+    "fa_h": 3.2746478873239475,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "max",
+    "tau": 0.6266185428648021,
+    "breaches": 64,
+    "detected": 63,
+    "early": 44,
+    "med_lead": 90.0,
+    "fa_h": 3.1690140845070456,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.7832731785810026,
+    "breaches": 64,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.9399278142972032,
+    "breaches": 64,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "2max",
+    "tau": 1.2532370857296042,
+    "breaches": 64,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   },
+   {
+    "level": "3max",
+    "tau": 1.8798556285944064,
+    "breaches": 64,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ],
+  "M9": [
+   {
+    "level": "fixed",
+    "tau": 0.5,
+    "breaches": 64,
+    "detected": 28,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.466666666666656
+   }
+  ]
+ },
+ "social": {
+  "M1": [
+   {
+    "level": "q0.95",
+    "tau": 0.017268239500051186,
+    "breaches": 83,
+    "detected": 81,
+    "early": 69,
+    "med_lead": 60.0,
+    "fa_h": 5.0704225352112715,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.019641753268095363,
+    "breaches": 83,
+    "detected": 81,
+    "early": 65,
+    "med_lead": 60.0,
+    "fa_h": 1.056338028169015,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "max",
+    "tau": 0.021549109735334634,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 30.0,
+    "fa_h": 0.6338028169014089,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.026936387169168293,
+    "breaches": 83,
+    "detected": 81,
+    "early": 63,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.03232366460300195,
+    "breaches": 83,
+    "detected": 81,
+    "early": 62,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "2max",
+    "tau": 0.04309821947066927,
+    "breaches": 83,
+    "detected": 81,
+    "early": 60,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "3max",
+    "tau": 0.0646473292060039,
+    "breaches": 83,
+    "detected": 81,
+    "early": 57,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   }
+  ],
+  "M1int": [
+   {
+    "level": "q0.95",
+    "tau": 0.017268239500051186,
+    "breaches": 83,
+    "detected": 81,
+    "early": 69,
+    "med_lead": 60.0,
+    "fa_h": 5.0704225352112715,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.019641753268095363,
+    "breaches": 83,
+    "detected": 81,
+    "early": 65,
+    "med_lead": 60.0,
+    "fa_h": 1.056338028169015,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "max",
+    "tau": 0.021549109735334634,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 30.0,
+    "fa_h": 0.6338028169014089,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.026936387169168293,
+    "breaches": 83,
+    "detected": 81,
+    "early": 63,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.03232366460300195,
+    "breaches": 83,
+    "detected": 81,
+    "early": 62,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "2max",
+    "tau": 0.04309821947066927,
+    "breaches": 83,
+    "detected": 81,
+    "early": 60,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "3max",
+    "tau": 0.0646473292060039,
+    "breaches": 83,
+    "detected": 81,
+    "early": 57,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   }
+  ],
+  "M2": [
+   {
+    "level": "q0.95",
+    "tau": 0.2242166017516788,
+    "breaches": 83,
+    "detected": 81,
+    "early": 67,
+    "med_lead": 60.0,
+    "fa_h": 2.11267605633803,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.3015318708106842,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 60.0,
+    "fa_h": 0.42253521126760596,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "max",
+    "tau": 0.31264775803892964,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 60.0,
+    "fa_h": 0.42253521126760596,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.390809697548662,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 45.0,
+    "fa_h": 0.10563380281690149,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.46897163705839445,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "2max",
+    "tau": 0.6252955160778593,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "3max",
+    "tau": 0.9379432741167889,
+    "breaches": 83,
+    "detected": 81,
+    "early": 62,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   }
+  ],
+  "M5": [
+   {
+    "level": "q0.95",
+    "tau": 0.2153776858144164,
+    "breaches": 83,
+    "detected": 81,
+    "early": 67,
+    "med_lead": 60.0,
+    "fa_h": 2.8521126760563402,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.28277764515383236,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 60.0,
+    "fa_h": 0.5281690140845074,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "max",
+    "tau": 0.31264775803892964,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 60.0,
+    "fa_h": 0.42253521126760596,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.390809697548662,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 45.0,
+    "fa_h": 0.10563380281690149,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.46897163705839445,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "2max",
+    "tau": 0.6252955160778593,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "3max",
+    "tau": 0.9379432741167889,
+    "breaches": 83,
+    "detected": 81,
+    "early": 62,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   }
+  ],
+  "M6": [
+   {
+    "level": "q0.95",
+    "tau": 0.2157432460867308,
+    "breaches": 83,
+    "detected": 81,
+    "early": 61,
+    "med_lead": 60.0,
+    "fa_h": 1.6901408450704238,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.2646370132386996,
+    "breaches": 83,
+    "detected": 81,
+    "early": 61,
+    "med_lead": 60.0,
+    "fa_h": 0.8450704225352119,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "max",
+    "tau": 0.29782657506793575,
+    "breaches": 83,
+    "detected": 81,
+    "early": 60,
+    "med_lead": 60.0,
+    "fa_h": 0.42253521126760596,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.37228321883491966,
+    "breaches": 83,
+    "detected": 81,
+    "early": 60,
+    "med_lead": 45.0,
+    "fa_h": 0.10563380281690149,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.4467398626019036,
+    "breaches": 83,
+    "detected": 81,
+    "early": 59,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "2max",
+    "tau": 0.5956531501358715,
+    "breaches": 83,
+    "detected": 81,
+    "early": 56,
+    "med_lead": 45.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "3max",
+    "tau": 0.8934797252038073,
+    "breaches": 83,
+    "detected": 80,
+    "early": 52,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   }
+  ],
+  "M8": [
+   {
+    "level": "q0.95",
+    "tau": 0.017268239500051186,
+    "breaches": 83,
+    "detected": 81,
+    "early": 69,
+    "med_lead": 60.0,
+    "fa_h": 5.0704225352112715,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.019641753268095363,
+    "breaches": 83,
+    "detected": 81,
+    "early": 66,
+    "med_lead": 45.0,
+    "fa_h": 1.056338028169015,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "max",
+    "tau": 0.021549109735334634,
+    "breaches": 83,
+    "detected": 81,
+    "early": 65,
+    "med_lead": 30.0,
+    "fa_h": 0.6338028169014089,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.026936387169168293,
+    "breaches": 83,
+    "detected": 81,
+    "early": 64,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.03232366460300195,
+    "breaches": 83,
+    "detected": 81,
+    "early": 63,
+    "med_lead": 30.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "2max",
+    "tau": 0.04309821947066927,
+    "breaches": 83,
+    "detected": 81,
+    "early": 61,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "3max",
+    "tau": 0.0646473292060039,
+    "breaches": 83,
+    "detected": 81,
+    "early": 58,
+    "med_lead": 60.0,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   }
+  ],
+  "M9c": [
+   {
+    "level": "q0.95",
+    "tau": 0.0,
+    "breaches": 83,
+    "detected": 81,
+    "early": 49,
+    "med_lead": 30.0,
+    "fa_h": 0.21126760563380298,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.0,
+    "breaches": 83,
+    "detected": 81,
+    "early": 49,
+    "med_lead": 30.0,
+    "fa_h": 0.21126760563380298,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "max",
+    "tau": 0.0,
+    "breaches": 83,
+    "detected": 81,
+    "early": 49,
+    "med_lead": 30.0,
+    "fa_h": 0.21126760563380298,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.0,
+    "breaches": 83,
+    "detected": 81,
+    "early": 49,
+    "med_lead": 30.0,
+    "fa_h": 0.21126760563380298,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.5max",
+    "tau": 0.0,
+    "breaches": 83,
+    "detected": 81,
+    "early": 49,
+    "med_lead": 30.0,
+    "fa_h": 0.21126760563380298,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "2max",
+    "tau": 0.0,
+    "breaches": 83,
+    "detected": 81,
+    "early": 49,
+    "med_lead": 30.0,
+    "fa_h": 0.21126760563380298,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "3max",
+    "tau": 0.0,
+    "breaches": 83,
+    "detected": 81,
+    "early": 49,
+    "med_lead": 30.0,
+    "fa_h": 0.21126760563380298,
+    "control_h": 9.46666666666666
+   }
+  ],
+  "M10": [
+   {
+    "level": "q0.95",
+    "tau": 0.6483864101525331,
+    "breaches": 83,
+    "detected": 82,
+    "early": 65,
+    "med_lead": 60.0,
+    "fa_h": 4.542253521126764,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "q0.99",
+    "tau": 0.6658789937415883,
+    "breaches": 83,
+    "detected": 81,
+    "early": 63,
+    "med_lead": 30.0,
+    "fa_h": 1.9014084507042268,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "max",
+    "tau": 0.6829042107417909,
+    "breaches": 83,
+    "detected": 81,
+    "early": 59,
+    "med_lead": 60.0,
+    "fa_h": 0.42253521126760596,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.25max",
+    "tau": 0.8536302634272386,
+    "breaches": 83,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "1.5max",
+    "tau": 1.0243563161126863,
+    "breaches": 83,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "2max",
+    "tau": 1.3658084214835817,
+    "breaches": 83,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   },
+   {
+    "level": "3max",
+    "tau": 2.0487126322253726,
+    "breaches": 83,
+    "detected": 0,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   }
+  ],
+  "M9": [
+   {
+    "level": "fixed",
+    "tau": 0.5,
+    "breaches": 83,
+    "detected": 23,
+    "early": 0,
+    "med_lead": null,
+    "fa_h": 0.0,
+    "control_h": 9.46666666666666
+   }
+  ]
+ }
+}
